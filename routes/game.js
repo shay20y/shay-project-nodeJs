@@ -83,7 +83,6 @@ router.get("/single/:id", async (req, res) => {
     res.status(502).json({ err });
   }
 });
-
 router.post("/", auth, async (req, res) => {
   let validBody = validateGame(req.body);
   if (validBody.error) {
@@ -109,13 +108,15 @@ router.put("/:id", auth, async (req, res) => {
       let id = req.params.id;
       let data;
       if (req.tokenData.role == "admin") {
-          data = await GameModel.updateOne({ _id: id }, req.body);
+          data = await GameModel
+          .updateOne({ _id: id }, req.body);
           data={msg:"Change :)"}
       }
       else {
-          const car = await GameModel.findById(id);
-          if (car && car.user_id == req.tokenData._id) {
-              data = await GameModel.updateOne({ _id: idEdit, user_id: req.tokenData._id  }, req.body);
+          const games = await GameModel.findById(id);
+          if (games && games.user_id == req.tokenData._id) {
+              data = await GameModel
+              .updateOne({ _id: idEdit, user_id: req.tokenData._id  }, req.body);
               data={msg:"Chang :)"}
           }
           else {
@@ -136,13 +137,15 @@ router.delete("/:idDel", auth, async (req, res) => {
       let idDel = req.params.idDel;
       let data;
       if (req.tokenData.role == "admin") {
-          data = await GameModel.deleteOne({ _id: idDel });
+          data = await GameModel
+          .deleteOne({ _id: idDel });
           data={msg:"deleted :X"}
       }
       else {
-          const car = await GameModel.findById(idDel);
-          if (car && car.user_id == req.tokenData._id) {
-              data = await GameModel.deleteOne({ _id: idDel });
+          const game = await GameModel.findById(idDel);
+          if (game && game.user_id == req.tokenData._id) {
+              data = await GameModel
+              .deleteOne({ _id: idDel });
               data={msg:"deleted :X"}
           }
           else {
