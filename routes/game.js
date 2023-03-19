@@ -59,21 +59,15 @@ router.get("/category/:category", async (req, res) => {
   }
 });
 router.get("/prices", async (req, res) => {
-  try {
-    let page = req.query.page ? parseInt(req.query.page) - 1 : 0;
-    let minPrice = req.query.min ? parseInt(req.query.min) : 0;
-    let maxPrice = req.query.max ? parseInt(req.query.max) : Infinity;
-    let data = await GameModel
-      .find({ price: { $gte: minPrice, $lte: maxPrice } })
-      .select({ user_id: 0, date_created: 0, __v: 0 })
-      .limit(10)
-      .skip(page * 10)
-      .sort({ _id: -1 }, { price: 1 });
-    res.json(data);
-  } catch (err) {
-    console.log(err);
-    res.status(502).json({ err });
-  }
+    let minPrice = req.query.min ? Number(req.query.min) : 0;
+    let maxPrice = req.query.max ? Number(req.query.max) : Number.MAX_SAFE_INTEGER;
+    try {
+        let data = await GameModel.find({ price: { $gte: minPrice, $lte: maxPrice } });
+        res.json(data);
+    } catch (err) {
+        console.log(err);
+        res.status(502).json({ err });
+    }
 });
 router.get("/single/:id", async (req, res) => {
   try {
@@ -107,30 +101,59 @@ router.post("/", auth, async (req, res) => {
   }
 })
 router.put("/:id", auth, async (req, res) => {
-  let validBody = validateGame(req.body);
+  let validBody = validateJoi(req.body);
   if (validBody.error) {
-    return res.status(400).json(validBody.error.details);
+      return res.status(400).json(validBody.error.details);
   }
   try {
-    let id = req.params.id;
-    let data = await GameModel.updateOne({ _id: id, user_id: req.tokenData._id }, req.body);
-    res.json(data);
-  }
-  catch (err) {
-    console.log(err);
-    res.status(502).json({ err })
-  }
-})
-router.delete("/:id", auth, async (req, res) => {
-  try {
-    let id = req.params.id;
-    let data = await GameModel.deleteOne({ _id: id, user_id: req.tokenData._id });
-    res.json(data);
-  }
-  catch (err) {
-    console.log(err);
-    res.status(502).json({ err })
-  }
-})
+      let id = req.params.id;
+      let data;
+      if (req.tokenData.role == "admin") {
+          data = await GameModel.updateOne({ _id: id }, req.body);
+          data={msg:"Change :)"}
+      }
+      else {
+          const car = await GameModel.findById(id);
+          if (car && car.user_id == req.tokenData._id) {
+              data = await GameModel.updateOne({ _id: idEdit, user_id: req.tokenData._id  }, req.body);
+              data={msg:"Chang :)"}
+          }
+          else {
+              return res.status(401).json({ error: "You are not authorized/didnt create to delete this element" });
+          }
 
+      }
+      res.json(data)
+  }
+  catch (err) {
+      res.json({ msg: "you didnt create this element" });
+      console.log(err);
+      res.status(502).json({ err })
+  }
+})
+router.delete("/:idDel", auth, async (req, res) => {
+  try {
+      let idDel = req.params.idDel;
+      let data;
+      if (req.tokenData.role == "admin") {
+          data = await GameModel.deleteOne({ _id: idDel });
+          data={msg:"deleted :X"}
+      }
+      else {
+          const car = await GameModel.findById(idDel);
+          if (car && car.user_id == req.tokenData._id) {
+              data = await GameModel.deleteOne({ _id: idDel });
+              data={msg:"deleted :X"}
+          }
+          else {
+              return res.status(401).json({ error: "You are not authorized/didnt create to delete this element" });
+          }
+      }
+      res.json(data);
+  }
+  catch (err) {
+      console.log(err);
+      res.status(502).json({ error: err.message });
+  }
+});
 module.exports = router;
