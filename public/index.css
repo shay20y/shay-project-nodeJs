@@ -1,9 +1,13 @@
-body{
+body {
     background: rgba(192, 192, 192, 0.865);
     font-family: 'Open Sans', sans-serif;
 }
 
-.container{
+/* *{
+    font-family: 'Open Sans', sans-serif;
+} */
+
+.container {
     max-width: 65vw;
 }
 
@@ -21,37 +25,47 @@ body{
     color: black;
 }
 
-p{
+p {
     font-size: 1.25em;
 }
 
-h2{
+h2 {
     text-align: center;
 }
 
-a{
+a {
     background: none;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    background: rgba(0, 0, 0, 0.734) !important;
+    background: rgba(0, 0, 0, 0.449) !important;
     transition: 1500ms
 }
 
-a:hover{
+.copyToClipboard {
+    background-color: rgb(0, 0, 0) ;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+a:hover {
     border-radius: 3px;
     background: white !important;
     color: black;
 }
 
-button{
+button {
     background: rgba(0, 0, 0, 0.734) !important;
     color: white !important;
     font-family: 'Source Code Pro', monospace;
     font-size: 0.80em;
 }
 
-header{
+header {
     text-align: center;
 }
 
@@ -72,7 +86,7 @@ header{
 }
 
 .container .code-example button {
-    
+
     position: absolute;
     top: 10px;
     right: 10px;
@@ -87,27 +101,27 @@ header{
     background-color: #0069d9;
 }
 
-.b{
-    color: #C18870FF ;
+.b {
+    color: #C18870FF;
 }
 
-.w{
+.w {
     color: #DCDCDCFF;
 }
 
-h4{
+h4 {
     font-size: 1.15em;
 }
 
 
-table{
+table {
     color: white;
 }
 
 .tg {
     border-collapse: collapse;
     border-spacing: 0;
-    
+
 }
 
 .tg td {
@@ -136,11 +150,11 @@ table{
 .tg .tg-baqh {
     font-size: 1.05em;
     text-align: center;
-    vertical-align: top;    
+    vertical-align: top;
     color: white;
 }
 
-.accordion-item{
+.accordion-item {
     background: rgba(0, 0, 0, 0.565);
     color: white;
-    }
+}
