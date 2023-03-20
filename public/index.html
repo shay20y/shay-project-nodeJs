@@ -406,28 +406,39 @@
             </div>
         </div>
         <script>
-            function copyToClipboard(text) {
+            const copyToClipboard = (text) => {
                 try {
                     navigator.clipboard.writeText(text);
-                    alert("Copied to clipboard");
+                    let msg = document.createElement('div');
+                    msg.className = 'copyToClipboard';
+                    msg.innerHTML = `Theis ${text} has been copied to the clipboard.`;
+                    document.body.appendChild(msg);
+                    setTimeout(function () {
+                        document.body.removeChild(msg);
+                    }, 2000);
+        
                 } catch (err) {
                     alert(err);
                 }
             }
-
-            function copyCode(id) {
+            const copyCode = (id) => {
                 let code = document.getElementById(id).textContent.trim();
                 console.log(code);
                 try {
                     navigator.clipboard.writeText(code);
-                    alert("Copied to clipboard");
+                    let msg = document.createElement('div');
+                    msg.className = 'copyToClipboard';
+                    msg.innerHTML = 'The JSON has been copied to the clipboard.';
+                    document.body.appendChild(msg);
+                    setTimeout(function () {
+                        document.body.removeChild(msg);
+                    }, 1500);
                 }
                 catch (err) {
                     alert(err);
                 }
             }
         </script>
-
 </body>
 
 </html>
