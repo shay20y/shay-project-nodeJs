@@ -12,6 +12,9 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 
+    <!-- icos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- CSS -->
     <link rel="stylesheet" href="index.css">
     <!-- js defer -->
@@ -120,8 +123,7 @@
                                         <tr>
                                             <td class="tg-baqh"><span>one
                                                     product according to its ID:</span></td>
-                                            <td class="tg-baqh"><span
-                                                    style="font-weight:bolder;"><a
+                                            <td class="tg-baqh"><span style="font-weight:bolder;"><a
                                                         href="https://shay-node-js-project.cyclic.app/game/single/">https://shay-node-js-project.cyclic.app/game/single/</a></span>
                                             </td>
                                             <td class="tg-baqh"> <button
@@ -154,15 +156,46 @@
                                     class="btns">/game</button>
                             </p>
                             <br>
-                            <ul>
-                                <li>name : String (requird)</li>
-                                <li>info : String (requird)</li>
-                                <li>img_url : String</li>
-                                <li>categories : array (requird)</li>
-                                <li>price : Number (requird)</li>
-                                <li>user_id : String (auto add)</li>
-                                <li>date_created : Date (auto add)</li>
-                            </ul>
+                            <div class="row d-flex">
+                                <div class="list col-md-6 p-3">
+                                    <ul>
+                                        <li>name : String (requird)</li>
+                                        <li>info : String (requird)</li>
+                                        <li>img_url : String</li>
+                                        <li>categories : array (requird)</li>
+                                        <li>price : Number (requird)</li>
+                                        <li>user_id : String (auto add)</li>
+                                        <li>date_created : Date (auto add)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="code-example col-md-6">
+                                    <button onclick="copyCode('codePost')"><i class="fa fa-clipboard" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="code-example">
+                                        <p id="codePost" rows="10" cols="50">
+                                            {
+                                            <br>
+                                            "name":" ",
+                                            <br>
+                                            "info":" ",
+                                            <br>
+                                            "img_url":" ",
+                                            <br>
+                                            "categories": [
+                                            <br>
+                                            " ",
+                                            <br>
+                                            ],
+                                            <br>
+                                            "price":
+                                            <br>
+
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -186,15 +219,46 @@
                                     class="btns">/game:${id
                                     prodect}</button>
                             </p>
-                            <ul>
-                                <li>name : String (requird)</li>
-                                <li>info : String (requird)</li>
-                                <li>img_url : String</li>
-                                <li>categories : array (requird)</li>
-                                <li>price : Number (requird)</li>
-                                <li>user_id : String (auto add)</li>
-                                <li>date_created : Date (auto add)</li>
-                            </ul>
+                            <div class="row d-flex">
+                                <div class="list col-md-6 p-3">
+                                    <ul>
+                                        <li>name : String (requird)</li>
+                                        <li>info : String (requird)</li>
+                                        <li>img_url : String</li>
+                                        <li>categories : array (requird)</li>
+                                        <li>price : Number (requird)</li>
+                                        <li>user_id : String (auto add)</li>
+                                        <li>date_created : Date (auto add)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="code-example col-md-6">
+                                    <button onclick="copyCode('codeEdit')"><i class="fa fa-clipboard" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="code-example">
+                                        <p id="codeEdit" rows="10" cols="50">
+                                            {
+                                            <br>
+                                            "name":" ",
+                                            <br>
+                                            "info":" ",
+                                            <br>
+                                            "img_url":" ",
+                                            <br>
+                                            "categories": [
+                                            <br>
+                                            " ",
+                                            <br>
+                                            ],
+                                            <br>
+                                            "price":
+                                            <br>
+
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -219,15 +283,46 @@
                                     prodect}</button>
                             </p>
                             <br>
-                            <ul>
-                                <li>name : String (requird)</li>
-                                <li>info : String (requird)</li>
-                                <li>img_url : String</li>
-                                <li>categories : array (requird)</li>
-                                <li>price : Number (requird)</li>
-                                <li>user_id : String (auto add)</li>
-                                <li>date_created : Date (auto add)</li>
-                            </ul>
+                            <div class="row d-flex">
+                                <div class="list col-md-6 p-3">
+                                    <ul>
+                                        <li>name : String (requird)</li>
+                                        <li>info : String (requird)</li>
+                                        <li>img_url : String</li>
+                                        <li>categories : array (requird)</li>
+                                        <li>price : Number (requird)</li>
+                                        <li>user_id : String (auto add)</li>
+                                        <li>date_created : Date (auto add)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="code-example col-md-6">
+                                    <button onclick="copyCode('codeDel')"><i class="fa fa-clipboard" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="code-example">
+                                        <p id="codeDel" rows="10" cols="50">
+                                            {
+                                            <br>
+                                            "name":" ",
+                                            <br>
+                                            "info":" ",
+                                            <br>
+                                            "img_url":" ",
+                                            <br>
+                                            "categories": [
+                                            <br>
+                                            " ",
+                                            <br>
+                                            ],
+                                            <br>
+                                            "price":
+                                            <br>
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -236,8 +331,8 @@
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingFive">
-                            <button class="headCollaps accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseFive" aria-expanded="false"
+                            <button class="headCollaps accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false"
                                 aria-controls="flush-collapseFive">
                                 Sign Up
                             </button>
@@ -250,23 +345,45 @@
                                     <a
                                         href="https://shay-node-js-project.cyclic.app/users/singUp">https://shay-node-js-project.cyclic.app/users/singUp</a>
                                     <button
-                                        onclick="copyToClipboard(`https://shay-node-js-project.cyclic.app/users/singUp`)"
+                                        onclick="copyToClipboard('https://shay-node-js-project.cyclic.app/users/singUp')"
                                         class="btns">/users/singUp</button>
                                 </p>
                                 <br>
-                                <ul>
-                                    <li>name : String (requird)</li>
-                                    <li>email : String (requird)</li>
-                                    <li>password : String (requird)</li>
-                                    <li>date_created : Date (auto add)</li>
-                                </ul>
+                                <div class="row">
+                                    <ul class="col-md-6 p-3">
+                                        <li>name : String (requird)</li>
+                                        <li>email : String (requird)</li>
+                                        <li>password : String (requird)</li>
+                                        <li>date_created : Date (auto add)</li>
+                                    </ul>
+
+                                    <div class="code-example col-md-6">
+                                        <button onclick="copyCode('codeS')"><i class="fa fa-clipboard" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="code-example">
+                                            <p id="codeS" rows="10" cols="50">
+                                                {
+                                                <br>
+                                                "name":" ",
+                                                <br>
+                                                "email":" ",
+                                                <br>
+                                                "password":" "
+                                                <br>
+                                                }
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingSix">
-                            <button class="headCollaps accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseSix" aria-expanded="false"
+                            <button class="headCollaps accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false"
                                 aria-controls="flush-collapseSix">
                                 login (post)
                             </button>
@@ -282,17 +399,35 @@
                                         class="btns">users/login</button>
                                 </p>
                                 <br>
-                                <ul>
-                                    <li>email : String (requird)</li>
-                                    <li>password : String (requird)</li>
-                                </ul>
+                                <div class="row">
+                                    <ul class="col-md-6 p-3">
+                                        <li>name : String (requird)</li>
+                                        <li>email : String (requird)</li>
+                                    </ul>
+
+                                    <div class="code-example col-md-6">
+                                        <button onclick="copyCode('codeL')"><i class="fa fa-clipboard" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="code-example">
+                                            <p id="codeL" rows="10" cols="50">
+                                                {
+                                                <br>
+                                                "name":" ",
+                                                <br>
+                                                "email":" ",
+                                                <br>
+                                                }
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingSeven">
-                            <button class="headCollaps accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                            <button class="headCollaps accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false"
                                 aria-controls="flush-collapseSeven">
                                 user info (get)
                             </button>
@@ -318,7 +453,6 @@
                 <br>
                 <br>
                 <footer class="text-center">
-
                     <h4> Copyright © 2023 | Made By Shay Yehuda</h4>
                     <h4>Fullstack Web Developer | Node.js | MongoDB | Express.js |</h4>
                     <h5><a href="https://github.com/shay20y">GITHUB - shay20y</a></h5>
@@ -329,15 +463,26 @@
             function copyToClipboard(text) {
                 try {
                     navigator.clipboard.writeText(text);
-                    alert(" copied to clipboard")
-                }
-                catch (err) {
+                    alert("Copied to clipboard");
+                } catch (err) {
                     alert(err);
-                    res.status(502).json({ err })
                 }
-
+            }
+        
+            function copyCode(id) {
+                const code = document.getElementById(id).textContent;
+                console.log(code);
+                
+                try{
+                    navigator.clipboard.writeText(code);
+                    alert("Copied to clipboard");
+                }
+                catch(err) {
+                    alert(err);
+                }
             }
         </script>
+        
 </body>
 
 </html>
