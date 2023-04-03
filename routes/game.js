@@ -5,7 +5,7 @@ const router = express.Router();
 
 // ?page=1&sort=
 router.get("/", async(req,res) => {
-  let perPage = 5;
+  let perPage = req.query.perPage || 5;
   let page = req.query.page - 1 || 0;
   let sort = req.query.sort || "_id";
   let reverse = (req.query.reverse == "yes") ? 1 : -1;
